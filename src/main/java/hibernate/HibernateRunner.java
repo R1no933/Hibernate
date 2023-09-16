@@ -1,5 +1,7 @@
 package hibernate;
 
+import hibernate.converter.BirthdayConverter;
+import hibernate.entity.Birthday;
 import hibernate.entity.Role;
 import hibernate.entity.User;
 import org.hibernate.*;
@@ -11,6 +13,7 @@ public class HibernateRunner {
     public static void main(String[] args) {
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(User.class);
+        configuration.addAttributeConverter(new BirthdayConverter());
         configuration.configure();
 
         try (SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -18,11 +21,10 @@ public class HibernateRunner {
             session.beginTransaction();
 
             User user = User.builder()
-                    .username("r1n0")
+                    .username("r1n0333")
                     .firstname("Dmitriy")
                     .lastname("Baskakov")
-                    .birthDate(LocalDate.of(1993, 03, 19))
-                    .age(30)
+                    .birthDate(new Birthday(LocalDate.of(1993, 03, 19)))
                     .role(Role.ADMIN)
                     .build();
             session.save(user);

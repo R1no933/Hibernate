@@ -1,5 +1,6 @@
 package hibernate;
 
+import hibernate.entity.Birthday;
 import hibernate.entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
@@ -19,11 +20,6 @@ class HibernateRunnerTest {
     @Test
     void checkReflectionApi() throws SQLException, IllegalAccessException {
         User user = User.builder()
-                .username("r1n0")
-                .firstname("Dmitriy")
-                .lastname("Baskakov")
-                .birthDate(LocalDate.of(1993, 03, 19))
-                .age(30)
                 .build();
 
         String sql = """
