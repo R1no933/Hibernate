@@ -16,7 +16,7 @@ java {
 
 dependencies {
     implementation("org.hibernate:hibernate-core:6.3.0.Final")
-    runtimeOnly("implementation 'org.postgresql:postgresql:42.6.0")
+    runtimeOnly("org.postgresql:postgresql:42.6.0")
 
     compileOnly("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
