@@ -1,5 +1,6 @@
 package hibernate;
 
+import hibernate.entity.Role;
 import hibernate.entity.User;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
@@ -22,6 +23,7 @@ public class HibernateRunner {
                     .lastname("Baskakov")
                     .birthDate(LocalDate.of(1993, 03, 19))
                     .age(30)
+                    .role(Role.ADMIN)
                     .build();
             session.save(user);
 
