@@ -20,12 +20,16 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    private String username;
-    private String firstname;
-    private String lastname;
+    @GeneratedValue(generator = "users_gen_sequence", strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "users_gen_sequence", sequenceName = "user_id_seq", allocationSize = 1)
+    private Long id;
 
-    @Column(name = "birth_date")
-    private Birthday birthDate;
+    @Column(unique = true)
+    private String username;
+
+    @Embedded
+    @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
+    private PersonalInfo personalInfo;
 
     @Type(type = "hiber_jsonb")
     private String info;
