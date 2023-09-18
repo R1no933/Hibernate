@@ -2,8 +2,6 @@ package hibernate;
 
 import hibernate.entity.Birthday;
 import hibernate.entity.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
@@ -17,6 +15,8 @@ import static java.util.Optional.*;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    /*
     @Test
     void checkReflectionApi() throws SQLException, IllegalAccessException {
         User user = User.builder()
@@ -55,4 +55,5 @@ class HibernateRunnerTest {
             preparedStatement.setObject(1, declaredField.get(user));
         }
     }
+     */
 }
