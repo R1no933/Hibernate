@@ -8,8 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/HibernateRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/HibernateRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

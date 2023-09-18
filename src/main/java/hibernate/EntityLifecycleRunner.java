@@ -12,7 +12,7 @@ import org.hibernate.Transaction;
 public class EntityLifecycleRunner {
     public static void main(String[] args) {
         User user = User.builder()
-                .username("TestUser")
+                .username("TestUser3")
                 .personalInfo(PersonalInfo.builder()
                         .firstname("First_User")
                         .lastname("FU_lastname")
@@ -23,25 +23,9 @@ public class EntityLifecycleRunner {
             Session firstSession = sessionFactory.openSession();
             try (firstSession) {
                 Transaction transaction = firstSession.beginTransaction();
-
                 firstSession.saveOrUpdate(user);
-
                 firstSession.getTransaction().commit();
             }
-
-            /*
-            try (Session secondSession = sessionFactory.openSession()) {
-                secondSession.beginTransaction();
-
-                user.setFirstname("Refreshed");
-                //secondSession.delete(user);
-                //refresh/merge
-                //secondSession.refresh(user);
-                secondSession.merge(user);
-
-                secondSession.getTransaction().commit();
-            }
-             */
         }
     }
 }
