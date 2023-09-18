@@ -8,6 +8,8 @@ import hibernate.entity.User;
 import hibernate.util.HibernateUtil;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.AttributeConverter;
 import java.time.LocalDate;
@@ -20,7 +22,7 @@ public class HibernateRunner {
             session.beginTransaction();
 
             User user = User.builder()
-                    .username("r1n0123")
+                    .username("r1n01234444")
                     .firstname("Dmitriy")
                     .lastname("Baskakov")
                     .birthDate(new Birthday(LocalDate.of(1993, 03, 19)))
