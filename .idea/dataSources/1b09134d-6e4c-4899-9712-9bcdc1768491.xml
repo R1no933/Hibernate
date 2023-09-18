@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>815</IntrospectionStateNumber>
+      <IntrospectionStateNumber>840</IntrospectionStateNumber>
       <ServerVersion>15.4</ServerVersion>
       <StartupTime>1694859598</StartupTime>
       <TimeZones>true ACDT
@@ -1405,7 +1405,7 @@ true posixrules
 13209||10|C|G
 13209||-9223372036854775808|U|G
 13209||10|U|G</Grants>
-      <IntrospectionStateNumber>815</IntrospectionStateNumber>
+      <IntrospectionStateNumber>840</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4818,16 +4818,16 @@ true posixrules
     <schema id="262" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>815</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2023-09-16.13:24:57.207</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-09-16.10:24:58</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>840</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2023-09-18.12:55:33.123</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-09-18.09:55:34</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <table id="263" parent="262" name="users">
-      <ObjectId>16461</ObjectId>
-      <StateNumber>814</StateNumber>
+      <ObjectId>16488</ObjectId>
+      <StateNumber>839</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4835,51 +4835,57 @@ true posixrules
       <DasType>varchar(128)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>814</StateNumber>
+      <StateNumber>839</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="265" parent="263" name="firstname">
       <DasType>varchar(128)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>814</StateNumber>
+      <StateNumber>839</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="266" parent="263" name="lastname">
       <DasType>varchar(128)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>814</StateNumber>
+      <StateNumber>839</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="267" parent="263" name="birth_date">
       <DasType>date|0s</DasType>
       <Position>4</Position>
-      <StateNumber>814</StateNumber>
+      <StateNumber>839</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="268" parent="263" name="age">
-      <DasType>integer|0s</DasType>
+    <column id="268" parent="263" name="role">
+      <DasType>varchar(32)|0s</DasType>
       <Position>5</Position>
-      <StateNumber>814</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>839</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <index id="269" parent="263" name="users_pkey">
+    <column id="269" parent="263" name="info">
+      <DasType>jsonb|0s</DasType>
+      <Position>6</Position>
+      <StateNumber>839</StateNumber>
+      <TypeId>3802</TypeId>
+    </column>
+    <index id="270" parent="263" name="users_pkey">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16464</ObjectId>
+      <ObjectId>16493</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>814</StateNumber>
+      <StateNumber>839</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="270" parent="263" name="users_pkey">
+    <key id="271" parent="263" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16465</ObjectId>
+      <ObjectId>16494</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>814</StateNumber>
-      <UnderlyingIndexId>16464</UnderlyingIndexId>
+      <StateNumber>839</StateNumber>
+      <UnderlyingIndexId>16493</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>
