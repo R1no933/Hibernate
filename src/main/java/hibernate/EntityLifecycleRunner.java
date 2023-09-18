@@ -2,11 +2,14 @@ package hibernate;
 
 import hibernate.entity.User;
 import hibernate.util.HibernateUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.sql.SQLException;
-
+@Slf4j
 public class EntityLifecycleRunner {
     public static void main(String[] args) {
         User user = User.builder()
@@ -14,16 +17,22 @@ public class EntityLifecycleRunner {
                 .firstname("Test")
                 .lastname("Test")
                 .build();
+        log.info("User entity is in transient state, object: {}", user);
 
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory()) {
-            try (Session firstSession = sessionFactory.openSession()) {
-                firstSession.beginTransaction();
+            Session firstSession = sessionFactory.openSession();
+            try (firstSession) {
+                Transaction transaction = firstSession.beginTransaction();
+                log.trace("Transaction is created: {}", transaction);
 
                 firstSession.saveOrUpdate(user);
+                log.trace("User is in persistent state, User: {}, Session: {}", user, firstSession);
 
                 firstSession.getTransaction().commit();
             }
+            log.warn("User is in persistent state, User: {}, Session is closed: {}", user, firstSession);
 
+            /*
             try (Session secondSession = sessionFactory.openSession()) {
                 secondSession.beginTransaction();
 
@@ -35,6 +44,10 @@ public class EntityLifecycleRunner {
 
                 secondSession.getTransaction().commit();
             }
+             */
+        } catch (Exception exception) {
+            log.error("Exception occurred", exception);
+            throw exception;
         }
     }
 }
