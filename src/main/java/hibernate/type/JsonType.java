@@ -1,5 +1,6 @@
 package hibernate.type;
 
+import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.usertype.UserType;
 
@@ -9,9 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class JsonType implements UserType {
+
     @Override
-    public int getSqlType() {
-        return 0;
+    public int[] sqlTypes() {
+        return new int[0];
     }
 
     @Override
@@ -20,27 +22,27 @@ public class JsonType implements UserType {
     }
 
     @Override
-    public boolean equals(Object x, Object y) {
+    public boolean equals(Object x, Object y) throws HibernateException {
         return false;
     }
 
     @Override
-    public int hashCode(Object x) {
+    public int hashCode(Object x) throws HibernateException {
         return 0;
     }
 
     @Override
-    public Object nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, Object owner) throws SQLException {
+    public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws HibernateException, SQLException {
         return null;
     }
 
     @Override
-    public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws SQLException {
+    public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws HibernateException, SQLException {
 
     }
 
     @Override
-    public Object deepCopy(Object value) {
+    public Object deepCopy(Object value) throws HibernateException {
         return null;
     }
 
@@ -50,12 +52,17 @@ public class JsonType implements UserType {
     }
 
     @Override
-    public Serializable disassemble(Object value) {
+    public Serializable disassemble(Object value) throws HibernateException {
         return null;
     }
 
     @Override
-    public Object assemble(Serializable cached, Object owner) {
+    public Object assemble(Serializable cached, Object owner) throws HibernateException {
+        return null;
+    }
+
+    @Override
+    public Object replace(Object original, Object target, Object owner) throws HibernateException {
         return null;
     }
 }

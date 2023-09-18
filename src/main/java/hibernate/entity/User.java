@@ -1,13 +1,14 @@
 package hibernate.entity;
 
-import hibernate.converter.BirthdayConverter;
-import jakarta.persistence.*;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
-import java.time.LocalDate;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @Builder
 @Entity
 @Table(name = "users", schema = "public")
+@TypeDef(name = "hiber_jsonb", typeClass = JsonBinaryType.class)
 public class User {
 
     @Id
@@ -25,7 +27,7 @@ public class User {
     @Column(name = "birth_date")
     private Birthday birthDate;
 
-    @Type
+    @Type(type = "hiber_jsonb")
     private String info;
 
     @Enumerated(EnumType.STRING)
