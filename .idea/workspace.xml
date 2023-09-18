@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f088be5-9cbf-4ac1-a324-8e04975645f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hibernate/entity/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/hibernate/CompanyProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/hibernate/ProxyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.4" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.5" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.6" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/util/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/util/HibernateUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,12 +184,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java</url>
           <line>31</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

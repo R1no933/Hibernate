@@ -13,11 +13,11 @@ import org.hibernate.Transaction;
 public class EntityLifecycleRunner {
     public static void main(String[] args) {
         Company company = Company.builder()
-                .name("Yandex")
+                .name("MailGroup")
                 .build();
 
         User user = User.builder()
-                .username("TestUser333")
+                .username("TestUser222")
                 .personalInfo(PersonalInfo.builder()
                         .firstname("First_User")
                         .lastname("FU_lastname")
@@ -29,7 +29,6 @@ public class EntityLifecycleRunner {
             Session firstSession = sessionFactory.openSession();
             try (firstSession) {
 
-                firstSession.save(company);
                 firstSession.save(user);
 
                 firstSession.getTransaction().commit();
