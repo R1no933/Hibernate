@@ -2,36 +2,35 @@ package hibernate;
 
 import hibernate.entity.User;
 import hibernate.util.HibernateUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+@Slf4j
 public class EntityLifecycleRunner {
-
-    private static final Logger logger = LoggerFactory.getLogger(EntityLifecycleRunner.class);
     public static void main(String[] args) {
         User user = User.builder()
                 .username("TestUser")
                 .firstname("Test")
                 .lastname("Test")
                 .build();
-        logger.info("User entity is in transient state, object: {}", user);
+        log.info("User entity is in transient state, object: {}", user);
 
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory()) {
             Session firstSession = sessionFactory.openSession();
             try (firstSession) {
                 Transaction transaction = firstSession.beginTransaction();
-                logger.trace("Transaction is created: {}", transaction);
+                log.trace("Transaction is created: {}", transaction);
 
                 firstSession.saveOrUpdate(user);
-                logger.trace("User is in persistent state, User: {}, Session: {}", user, firstSession);
+                log.trace("User is in persistent state, User: {}, Session: {}", user, firstSession);
 
                 firstSession.getTransaction().commit();
             }
-            logger.warn("User is in persistent state, User: {}, Session is closed: {}", user, firstSession);
+            log.warn("User is in persistent state, User: {}, Session is closed: {}", user, firstSession);
 
             /*
             try (Session secondSession = sessionFactory.openSession()) {
@@ -47,7 +46,7 @@ public class EntityLifecycleRunner {
             }
              */
         } catch (Exception exception) {
-            logger.error("Exception occurred", exception);
+            log.error("Exception occurred", exception);
             throw exception;
         }
     }
