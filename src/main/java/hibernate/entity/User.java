@@ -25,6 +25,9 @@ public class User {
     @Column(name = "birth_date")
     private Birthday birthDate;
 
+    @Type
+    private String info;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 }
