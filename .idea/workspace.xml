@@ -8,9 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/util/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/util/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/entity/Company.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/hibernate/HibernateRunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hibernate/HibernateRunnerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +92,7 @@
       <recent name="hibernate" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.HibernateRunnerTest.checkManyToMany">
+  <component name="RunManager" selected="Gradle.HibernateRunnerTest.localeInfo">
     <configuration name="HibernateRunnerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -191,7 +189,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="HibernateRunnerTest.oneToMany" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="HibernateRunnerTest.localeInfo" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -204,7 +202,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hibernate.HibernateRunnerTest.oneToMany&quot;" />
+            <option value="&quot;hibernate.HibernateRunnerTest.localeInfo&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -217,11 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.HibernateRunnerTest.localeInfo" />
         <item itemvalue="Gradle.HibernateRunnerTest.checkManyToMany" />
         <item itemvalue="Gradle.HibernateRunnerTest" />
         <item itemvalue="Gradle.HibernateRunnerTest.checkOneToOne" />
         <item itemvalue="Gradle.HibernateRunnerTest.checkLazyInit" />
-        <item itemvalue="Gradle.HibernateRunnerTest.oneToMany" />
       </list>
     </recent_temporary>
   </component>
@@ -238,7 +236,7 @@
       <workItem from="1695026414689" duration="1065000" />
       <workItem from="1695028232573" duration="1251000" />
       <workItem from="1695029817793" duration="4115000" />
-      <workItem from="1695069453720" duration="10587000" />
+      <workItem from="1695069453720" duration="12110000" />
     </task>
     <servers />
   </component>
