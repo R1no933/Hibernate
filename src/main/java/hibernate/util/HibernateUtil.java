@@ -12,12 +12,18 @@ import org.hibernate.cfg.Configuration;
 @UtilityClass
 public class HibernateUtil {
     public static SessionFactory buildSessionFactory() {
+        Configuration configuration = buildConfiguration();
+        configuration.configure();
+
+        return configuration.buildSessionFactory();
+    }
+
+    public static Configuration buildConfiguration() {
         Configuration configuration = new Configuration();
         configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
         configuration.registerTypeOverride(new JsonBinaryType());
         configuration.addAttributeConverter(new BirthdayConverter());
-        configuration.configure();
 
-        return configuration.buildSessionFactory();
+        return configuration;
     }
 }

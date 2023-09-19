@@ -1,6 +1,7 @@
 package hibernate;
 
 import hibernate.entity.*;
+import hibernate.util.HibernateTestUtil;
 import hibernate.util.HibernateUtil;
 import lombok.Cleanup;
 import org.hibernate.Session;
@@ -20,6 +21,22 @@ import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
 
+    @Test
+    void chackH2() {
+        try (SessionFactory sessionFactory = HibernateTestUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            Company company = Company.builder()
+                    .name("Netflix")
+                    .build();
+            session.save(company);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    /*
     @Test
     void localeInfo() {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
