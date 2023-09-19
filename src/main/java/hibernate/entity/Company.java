@@ -3,10 +3,13 @@ package hibernate.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.hibernate.*;
 
 @Data
 @Entity
@@ -24,6 +27,7 @@ public class Company {
 
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL) //Can use without many to one
+    @OrderBy("username DESC, personalInfo.lastname ASC")
     private Set<User> users = new HashSet<>();
 
     @Builder.Default
