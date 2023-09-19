@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f088be5-9cbf-4ac1-a324-8e04975645f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/hibernate/CompanyProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hibernate/ProxyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.10" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.4" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.4" afterDir="false" />
@@ -16,8 +17,10 @@
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.6" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/entity/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hibernate/HibernateRunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hibernate/HibernateRunnerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +103,7 @@
       <recent name="hibernate" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EntityLifecycleRunner">
+  <component name="RunManager" selected="Gradle.HibernateRunnerTest">
     <configuration name="EntityLifecycleRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hibernate.EntityLifecycleRunner" />
       <module name="Hibernate.main" />
@@ -127,6 +130,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HibernateRunnerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hibernate.HibernateRunnerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="HibernateRunnerTest.checkReflectionApi" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -151,8 +178,34 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="HibernateRunnerTest.oneToMany" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hibernate.HibernateRunnerTest.oneToMany&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.HibernateRunnerTest" />
+        <item itemvalue="Gradle.HibernateRunnerTest.oneToMany" />
         <item itemvalue="Application.EntityLifecycleRunner" />
         <item itemvalue="Gradle.HibernateRunnerTest.checkReflectionApi" />
         <item itemvalue="Application.HibernateRunner" />
@@ -172,6 +225,7 @@
       <workItem from="1695026414689" duration="1065000" />
       <workItem from="1695028232573" duration="1251000" />
       <workItem from="1695029817793" duration="4115000" />
+      <workItem from="1695069453720" duration="2165000" />
     </task>
     <servers />
   </component>
@@ -183,8 +237,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/hibernate/HibernateRunnerTest.java</url>
           <line>31</line>
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,5 @@
-[20:41:14,026] INFO [org.hibernate.orm.connections.pooling: 502] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
-[20:48:06,628] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 5.5.6.Final
-[20:48:07,247] INFO [Hibernate Types: 283] This framework is proudly powered by:
+[20:57:29,734] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 5.5.6.Final
+[20:57:30,325] INFO [Hibernate Types: 283] This framework is proudly powered by:
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
  _    _                           _     _
@@ -21,3 +20,4 @@ Hypersistence Optimizer is that tool! For more details, go to:
 https://vladmihalcea.com/hypersistence-optimizer/
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+[20:57:31,104] INFO [org.hibernate.annotations.common.Version: 56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}

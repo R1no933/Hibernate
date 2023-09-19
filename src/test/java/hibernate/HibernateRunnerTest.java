@@ -1,7 +1,12 @@
 package hibernate;
 
 import hibernate.entity.Birthday;
+import hibernate.entity.Company;
 import hibernate.entity.User;
+import hibernate.util.HibernateUtil;
+import lombok.Cleanup;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
@@ -15,6 +20,20 @@ import static java.util.Optional.*;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void oneToMany() {
+        @Cleanup SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+        @Cleanup Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+
+        Company company = session.get(Company.class, 2);
+        System.out.println("");
+
+        session.getTransaction().commit();
+
+    }
 
     /*
     @Test
