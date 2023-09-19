@@ -12,6 +12,12 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
 
+    <mapping class="hibernate.entity.User"/>
+    <mapping class="hibernate.entity.Company"/>
+    <mapping class="hibernate.entity.Profile"/>
+    <mapping class="hibernate.entity.Chat"/>
+    <mapping class="hibernate.entity.UserChat"/>
+
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
   </session-factory>
