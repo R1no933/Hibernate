@@ -28,6 +28,9 @@ dependencies {
     testAnnotationProcessor ("org.projectlombok:lombok:1.18.20")
     testImplementation ("org.junit.jupiter:junit-jupiter-api:5.7.2")
     testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.7.2")
+    testImplementation("org.testcontainers:postgresql:1.19.0")
+
+
 }
 
 tasks.test {
