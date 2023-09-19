@@ -2,6 +2,7 @@ package hibernate;
 
 import hibernate.entity.Birthday;
 import hibernate.entity.Company;
+import hibernate.entity.Profile;
 import hibernate.entity.User;
 import hibernate.util.HibernateUtil;
 import lombok.Cleanup;
@@ -20,6 +21,32 @@ import static java.util.Optional.*;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+    @Test
+    void checkOneToOne() {
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+            Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            User user = session.get(User.class, 7L);
+            System.out.println();
+            /*
+            User user = User.builder()
+                    .username("TestUser111")
+                    .build();
+
+            Profile profile = Profile.builder()
+                    .language("ru")
+                    .street("test_Street")
+                    .build();
+            session.save(user);
+            profile.setUser(user);
+
+             */
+
+            session.getTransaction().commit();
+        }
+    }
+
     @Test
     void deleteCompany() {
         @Cleanup SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
