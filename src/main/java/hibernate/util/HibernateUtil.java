@@ -14,8 +14,6 @@ public class HibernateUtil {
     public static SessionFactory buildSessionFactory() {
         Configuration configuration = new Configuration();
         configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
-        configuration.addAnnotatedClass(Company.class);
-        configuration.addAnnotatedClass(User.class);
         configuration.registerTypeOverride(new JsonBinaryType());
         configuration.addAttributeConverter(new BirthdayConverter());
         configuration.configure();

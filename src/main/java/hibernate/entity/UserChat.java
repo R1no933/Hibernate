@@ -6,26 +6,36 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-public class Profile {
+@Table(name = "users_chat")
+public class UserChat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
     private User user;
 
-    private String street;
-    private String language;
+    @ManyToOne
+    private Chat chat;
+
+    private Instant createdAt;
+
+    private String createdBy;
 
     public void setUser(User user) {
-        user.setProfile(this);
         this.user = user;
+        this.user.getUserChats().add(this);
+    }
+
+    public void setChat(Chat chat) {
+         this.chat = chat;
+         this.chat.getUserChats().add(this);
     }
 }

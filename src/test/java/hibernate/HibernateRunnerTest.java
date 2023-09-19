@@ -1,9 +1,6 @@
 package hibernate;
 
-import hibernate.entity.Birthday;
-import hibernate.entity.Company;
-import hibernate.entity.Profile;
-import hibernate.entity.User;
+import hibernate.entity.*;
 import hibernate.util.HibernateUtil;
 import lombok.Cleanup;
 import org.hibernate.Session;
@@ -14,6 +11,7 @@ import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Arrays;
 
@@ -21,6 +19,31 @@ import static java.util.Optional.*;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkManyToMany() {
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            User user = session.get(User.class, 8L);
+            Chat chat = session.get(Chat.class, 1L);
+
+            UserChat userChat = UserChat.builder()
+                    .createdAt(Instant.now())
+                    .createdBy(user.getUsername())
+                    .build();
+
+            userChat.setUser(user);
+            userChat.setChat(chat);
+
+            session.save(userChat);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    /*
     @Test
     void checkOneToOne() {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
