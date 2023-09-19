@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f088be5-9cbf-4ac1-a324-8e04975645f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.10" afterDir="false" />
@@ -18,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity-lifecycle-runner.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/entity-lifecycle-runner.log.9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/entity/Company.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/hibernate/HibernateRunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hibernate/HibernateRunnerTest.java" afterDir="false" />
     </list>
@@ -225,7 +222,7 @@
       <workItem from="1695026414689" duration="1065000" />
       <workItem from="1695028232573" duration="1251000" />
       <workItem from="1695029817793" duration="4115000" />
-      <workItem from="1695069453720" duration="2165000" />
+      <workItem from="1695069453720" duration="3378000" />
     </task>
     <servers />
   </component>
@@ -239,11 +236,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/hibernate/EntityLifecycleRunner.java</url>
           <line>29</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/hibernate/HibernateRunnerTest.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

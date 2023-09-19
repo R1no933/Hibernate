@@ -20,6 +20,38 @@ import static java.util.Optional.*;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+    @Test
+    void deleteCompany() {
+        @Cleanup SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+        @Cleanup Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+
+        Company company = session.get(Company.class, 2);
+        session.delete(company);
+
+        session.getTransaction().commit();
+    }
+
+    @Test
+    void addUserToNewCompany() {
+        @Cleanup SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+        @Cleanup Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+
+        Company company = Company.builder()
+                .name("Amazon")
+                .build();
+        User user = User.builder()
+                .username("NewUser")
+                .build();
+        company.addUser(user);
+
+        session.save(company);
+
+        session.getTransaction().commit();
+    }
 
     @Test
     void oneToMany() {

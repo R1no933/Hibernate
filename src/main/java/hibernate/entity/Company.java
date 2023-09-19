@@ -3,6 +3,7 @@ package hibernate.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -20,6 +21,12 @@ public class Company {
 
     private String name;
 
-    @OneToMany(mappedBy = "company") //Can use without many to one
-    private Set<User> users;
+    @Builder.Default
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL) //Can use without many to one
+    private Set<User> users = new HashSet<>();
+
+    public void addUser(User user) {
+        users.add(user);
+        user.setCompany(this);
+    }
 }
