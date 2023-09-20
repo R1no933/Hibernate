@@ -1,26 +1,34 @@
 package hibernate;
 
-import hibernate.entity.*;
+import hibernate.entity.User;
 import hibernate.util.HibernateTestUtil;
-import hibernate.util.HibernateUtil;
-import lombok.Cleanup;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.jpa.QueryHints;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.util.Arrays;
-
-import static java.util.Optional.*;
-import static java.util.stream.Collectors.joining;
+import java.util.List;
 
 class HibernateRunnerTest {
 
+    @Test
+    void checkHql() {
+        try (SessionFactory sessionFactory = HibernateTestUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            //HQL / JPQL
+            List<User> list = session.createNamedQuery("findUserByName", User.class)
+                    .setParameter("firstname", "Dmitriy")
+                    .setHint(QueryHints.HINT_FETCH_SIZE, "50")
+                    .list();
+
+            int uodatesRow = session.createQuery("update User u set u.role = 'Admin'").executeUpdate();
+
+            session.getTransaction().commit();
+        }
+    }
+    /*
     @Test
     void chackH2() {
         try (SessionFactory sessionFactory = HibernateTestUtil.buildSessionFactory();

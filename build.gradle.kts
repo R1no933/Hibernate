@@ -26,6 +26,7 @@ dependencies {
 
     testCompileOnly ("org.projectlombok:lombok:1.18.20")
     testAnnotationProcessor ("org.projectlombok:lombok:1.18.20")
+    testImplementation("org.assertj:assertj-core:3.21.0")
     testImplementation ("org.junit.jupiter:junit-jupiter-api:5.7.2")
     testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.7.2")
     testImplementation("org.testcontainers:postgresql:1.19.0")
