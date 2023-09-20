@@ -1,11 +1,14 @@
 package hibernate.dao;
 
-import hibernate.entity.Payment;
-import hibernate.entity.User;
+import hibernate.dto.CompanyDto;
+import hibernate.entity.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 
+import javax.persistence.Tuple;
+import javax.persistence.criteria.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -17,7 +20,21 @@ public class UserDao {
      * Возвращает всех сотрудников
      */
     public List<User> findAll(Session session) {
+
+        /* HQL
         return session.createQuery("select u from User u", User.class)
+                .list();
+
+         */
+
+        //Criteria API
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<User> criteria = cb.createQuery(User.class);
+
+        Root<User> user = criteria.from(User.class);
+        criteria.select(user);
+
+        return session.createQuery(criteria)
                 .list();
     }
 
@@ -25,9 +42,24 @@ public class UserDao {
      * Возвращает всех сотрудников с указанным именем
      */
     public List<User> findAllByFirstName(Session session, String firstName) {
+
+         /* HQL
         return session.createQuery("select u from User u " +
                         "where u.personalInfo.firstname = :firstName", User.class)
                 .setParameter("firstName", firstName)
+                .list();
+
+          */
+
+        // Criteria API
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<User> criteria = cb.createQuery(User.class);
+
+        Root<User> user = criteria.from(User.class);
+        criteria.select(user).where(
+                cb.equal(user.get(User_.personalInfo).get(PersonalInfo_.firstname), firstName));
+
+        return session.createQuery(criteria)
                 .list();
     }
 
@@ -35,9 +67,24 @@ public class UserDao {
      * Возвращает первые {limit} сотрудников, упорядоченных по дате рождения (в порядке возрастания)
      */
     public List<User> findLimitedUsersOrderedByBirthday(Session session, int limit) {
+
+         /* HQL
         return session.createQuery("select u from User u order by u.personalInfo.birthDate", User.class)
                 .setMaxResults(limit)
 //                .setFirstResult(offset)
+                .list();
+
+          */
+
+        // Criteria API
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<User> criteria = cb.createQuery(User.class);
+
+        Root<User> user = criteria.from(User.class);
+        criteria.select(user).orderBy(cb.asc(user.get(User_.personalInfo).get(PersonalInfo_.birthDate)));
+
+        return session.createQuery(criteria)
+                .setMaxResults(limit)
                 .list();
     }
 
@@ -45,10 +92,28 @@ public class UserDao {
      * Возвращает всех сотрудников компании с указанным названием
      */
     public List<User> findAllByCompanyName(Session session, String companyName) {
+
+         /* HQL
         return session.createQuery("select u from Company c " +
                         "join c.users u " +
                         "where c.name = :companyName", User.class)
                 .setParameter("companyName", companyName)
+                .list();
+
+          */
+
+        // Criteria API
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<User> criteria = cb.createQuery(User.class);
+
+        Root<Company> company = criteria.from(Company.class);
+        SetJoin<Company, User> users = company.join(Company_.users);
+
+        criteria.select(users).where(
+                cb.equal(company.get(Company_.name), companyName)
+        );
+
+        return session.createQuery(criteria)
                 .list();
     }
 
@@ -57,6 +122,8 @@ public class UserDao {
      * упорядоченные по имени сотрудника, а затем по размеру выплаты
      */
     public List<Payment> findAllPaymentsByCompanyName(Session session, String companyName) {
+
+         /* HQL
         return session.createQuery("select p from Payment p " +
                         "join p.receiver u " +
                         "join u.company c " +
@@ -64,12 +131,33 @@ public class UserDao {
                         "order by u.personalInfo.firstname, p.amount", Payment.class)
                 .setParameter("companyName", companyName)
                 .list();
+          */
+
+        // Criteria API
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Payment> criteria = cb.createQuery(Payment.class);
+
+        Root<Payment> payment = criteria.from(Payment.class);
+        Join<Payment, User> user = payment.join(Payment_.receiver);
+        Join<User, Company> company = user.join(User_.company);
+        criteria.select(payment).where(
+                cb.equal(company.get(Company_.name), companyName)
+        )
+                .orderBy(
+                        cb.asc(user.get(User_.personalInfo).get(PersonalInfo_.firstname)),
+                        cb.asc(payment.get(Payment_.amount))
+                );
+
+        return session.createQuery(criteria)
+                .list();
     }
 
     /**
      * Возвращает среднюю зарплату сотрудника с указанными именем и фамилией
      */
     public Double findAveragePaymentAmountByFirstAndLastNames(Session session, String firstName, String lastName) {
+
+         /* HQL
         return session.createQuery("select avg(p.amount) from Payment p " +
                         "join p.receiver u " +
                         "where u.personalInfo.firstname = :firstName " +
@@ -77,17 +165,64 @@ public class UserDao {
                 .setParameter("firstName", firstName)
                 .setParameter("lastName", lastName)
                 .uniqueResult();
+          */
+
+        // Criteria API
+
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Double> criteria = cb.createQuery(Double.class);
+
+        Root<Payment> payment = criteria.from(Payment.class);
+        Join<Payment, User> user = payment.join(Payment_.receiver);
+        List<Predicate> predicates = new ArrayList<>();
+        if (firstName != null) {
+            predicates.add(cb.equal(user.get(User_.personalInfo).get(PersonalInfo_.firstname), firstName));
+        }
+
+        if (lastName != null) {
+            predicates.add(cb.equal(user.get(User_.personalInfo).get(PersonalInfo_.lastname), lastName));
+        }
+
+        criteria.select(cb.avg(payment.get(Payment_.amount))).where(
+                predicates.toArray(Predicate[]::new)
+        );
+
+        return session.createQuery(criteria)
+                .uniqueResult();
     }
 
     /**
      * Возвращает для каждой компании: название, среднюю зарплату всех её сотрудников. Компании упорядочены по названию.
      */
-    public List<Object[]> findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(Session session) {
+    public List<CompanyDto> findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(Session session) {
+
+         /* HQL
         return session.createQuery("select c.name, avg(p.amount) from Company c " +
                         "join c.users u " +
                         "join u.payments p " +
                         "group by c.name " +
                         "order by c.name", Object[].class)
+                .list();
+
+          */
+
+        // Criteria API
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<CompanyDto> criteria = cb.createQuery(CompanyDto.class);
+
+        Root<Company> company = criteria.from(Company.class);
+        SetJoin<Company, User> users = company.join(Company_.users, JoinType.INNER);
+        ListJoin<User, Payment> payment = users.join(User_.payments);
+
+        criteria.select(
+                cb.construct(CompanyDto.class,
+                    company.get(Company_.name),
+                    cb.avg(payment.get(Payment_.amount)))
+        )
+                .groupBy(company.get(Company_.name))
+                .orderBy(cb.asc(company.get(Company_.name)));
+
+        return session.createQuery(criteria)
                 .list();
     }
 
@@ -96,12 +231,42 @@ public class UserDao {
      * больше среднего размера выплат всех сотрудников
      * Упорядочить по имени сотрудника
      */
-    public List<Object[]> isItPossible(Session session) {
+    public List<Tuple> isItPossible(Session session) {
+
+         /* HQL
         return session.createQuery("select u, avg(p.amount) from User u " +
                         "join u.payments p " +
                         "group by u " +
                         "having avg(p.amount) > (select avg(p.amount) from Payment p) " +
                         "order by u.personalInfo.firstname", Object[].class)
+                .list();
+
+          */
+
+        // Criteria API
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Tuple> criteria = cb.createQuery(Tuple.class);
+
+        Root<User> user = criteria.from(User.class);
+        ListJoin<User, Payment> payment = user.join(User_.payments);
+
+        Subquery<Double> subquery = criteria.subquery(Double.class);
+        Root<Payment> paymentSubquery = subquery.from(Payment.class);
+
+        criteria.select(
+                cb.tuple(
+                        user,
+                        cb.avg(payment.get(Payment_.amount))
+                )
+        )
+                .groupBy(user.get(User_.id))
+                .having(cb.gt(
+                        cb.avg(payment.get(Payment_.amount)),
+                        subquery.select(cb.avg(paymentSubquery.get(Payment_.amount)))
+                ))
+                .orderBy(cb.asc(user.get(User_.personalInfo).get(PersonalInfo_.firstname)));
+
+        return session.createQuery(criteria)
                 .list();
     }
 

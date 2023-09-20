@@ -16,10 +16,11 @@ java {
 
 dependencies {
     implementation ("org.hibernate:hibernate-core:5.5.6.Final")
-    runtimeOnly ("org.postgresql:postgresql:42.2.23.jre7")
+    runtimeOnly ("org.postgresql:postgresql:42.2.27")
     implementation ("com.vladmihalcea:hibernate-types-52:2.12.1")
     implementation("org.slf4j:slf4j-log4j12:2.0.7")
 
+    annotationProcessor("org.hibernate:hibernate-jpamodelgen:5.5.7.Final")
 
     compileOnly ("org.projectlombok:lombok:1.18.20")
     annotationProcessor ("org.projectlombok:lombok:1.18.20")
