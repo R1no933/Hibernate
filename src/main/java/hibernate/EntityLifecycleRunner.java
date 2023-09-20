@@ -14,6 +14,7 @@ public class EntityLifecycleRunner {
                 .name("MailGroup")
                 .build();
 
+        /*
         User user = User.builder()
                 .username("TestUser222")
                 .personalInfo(PersonalInfo.builder()
@@ -32,5 +33,6 @@ public class EntityLifecycleRunner {
                 firstSession.getTransaction().commit();
             }
         }
+         */
     }
 }

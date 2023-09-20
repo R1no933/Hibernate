@@ -1,9 +1,6 @@
 package hibernate.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -12,6 +9,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "users_chat")
 public class UserChat extends AuditableEntity<Long> {
