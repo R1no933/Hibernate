@@ -2,10 +2,7 @@ package hibernate.entity;
 
 import lombok.*;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -13,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
-@DiscriminatorValue("programmer")
+@PrimaryKeyJoinColumn(name = "id")
 public class Programmer extends User {
     @Enumerated(EnumType.STRING)
     private Language language;
