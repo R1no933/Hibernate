@@ -18,7 +18,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users", schema = "public")
 @TypeDef(name = "hiber_jsonb", typeClass = JsonBinaryType.class)
-public class User {
+public class User implements BaseEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
