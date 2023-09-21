@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f088be5-9cbf-4ac1-a324-8e04975645f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1b09134d-6e4c-4899-9712-9bcdc1768491.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -101,7 +101,7 @@
       <recent name="hibernate" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Hibernate [classes]">
+  <component name="RunManager" selected="Gradle.UserDaoTest">
     <configuration name="Hibernate [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -222,8 +222,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Hibernate [classes]" />
         <item itemvalue="Gradle.UserDaoTest" />
+        <item itemvalue="Gradle.Hibernate [classes]" />
         <item itemvalue="Gradle.UserDaoTest.findAll" />
         <item itemvalue="Gradle.HibernateRunnerTest.checkHql" />
         <item itemvalue="Gradle.HibernateRunnerTest.chackH2" />

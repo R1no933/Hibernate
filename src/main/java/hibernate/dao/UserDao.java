@@ -26,7 +26,6 @@ public class UserDao {
                 .list();
 
          */
-
         //Criteria API
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<User> criteria = cb.createQuery(User.class);

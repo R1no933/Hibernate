@@ -1,7 +1,6 @@
 
 plugins {
     id("java")
-    id("com.ewerk.gradle.plugins.querydsl") version "1.0.10"
 }
 
 group = "hibernate"
@@ -23,11 +22,11 @@ dependencies {
     implementation ("org.slf4j:slf4j-log4j12:2.0.7")
 
 
-    implementation ("com.querydsl:querydsl-jpa:5.0.0")
-    annotationProcessor ("com.querydsl:querydsl-apt:5.0.0")
+    //implementation ("com.querydsl:querydsl-jpa:5.0.0")
+   //annotationProcessor ("com.querydsl:querydsl-apt:5.0.0")
 
 
-    //annotationProcessor("org.hibernate:hibernate-jpamodelgen:5.5.7.Final")
+    annotationProcessor("org.hibernate:hibernate-jpamodelgen:5.5.7.Final")
 
     compileOnly ("org.projectlombok:lombok:1.18.20")
     annotationProcessor ("org.projectlombok:lombok:1.18.20")
@@ -39,13 +38,6 @@ dependencies {
     testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.7.2")
     testImplementation ("org.testcontainers:postgresql:1.19.0")
 }
-
-querydsl {
-    jpa = true
-    querydslSourcesDir = "$buildDir/generated/sources/annotationProcessor/java/main"
-}
-
-
 
 tasks.test {
     useJUnitPlatform()
