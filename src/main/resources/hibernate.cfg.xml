@@ -17,8 +17,6 @@
     <mapping class="hibernate.entity.Profile"/>
     <mapping class="hibernate.entity.Chat"/>
     <mapping class="hibernate.entity.UserChat"/>
-    <mapping class="hibernate.entity.Programmer"/>
-    <mapping class="hibernate.entity.Manager"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
