@@ -35,10 +35,31 @@ class HibernateRunnerTest {
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            Company company = Company.builder()
+            Company company1 = Company.builder()
                     .name("Netflix")
                     .build();
-            session.save(company);
+            session.save(company1);
+
+            Programmer programmer = Programmer.builder()
+                    .username("FirstProgrammer")
+                    .language(Language.JAVA)
+                    .company(company1)
+                    .build();
+            session.save(programmer);
+
+            Manager manager = Manager.builder()
+                    .username("FirstManager")
+                    .projectName("Project")
+                    .company(company1)
+                    .build();
+            session.save(manager);
+            session.flush();
+
+            session.clear();
+
+            Programmer getProgrammer = session.get(Programmer.class, 1L);
+            User user = session.get(User.class, 2L);
+            System.out.println();
 
             session.getTransaction().commit();
         }

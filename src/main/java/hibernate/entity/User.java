@@ -8,6 +8,9 @@ import org.hibernate.annotations.TypeDef;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static hibernate.util.StringUtil.SPACE;
 
@@ -22,9 +25,9 @@ import static hibernate.util.StringUtil.SPACE;
 @Entity
 @Table(name = "users", schema = "public")
 @TypeDef(name = "hiber_jsonb", typeClass = JsonBinaryType.class)
-public class User implements Comparable<User>, BaseEntity<Long>{
+public class User implements Comparable<User>, BaseEntity<Long> {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
@@ -46,7 +49,6 @@ public class User implements Comparable<User>, BaseEntity<Long>{
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Profile profile;
 
-    @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<UserChat> userChats = new ArrayList<>();
 
