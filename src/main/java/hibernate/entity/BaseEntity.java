@@ -1,5 +1,12 @@
 package hibernate.entity;
 
+
+import java.io.Serializable;
+
+public interface BaseEntity<T extends Serializable> {
+    void setId(T id);
+
+
 import lombok.Getter;
 import lombok.Setter;
 
