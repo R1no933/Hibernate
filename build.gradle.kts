@@ -1,3 +1,4 @@
+
 plugins {
     id("java")
 }
@@ -15,17 +16,27 @@ java {
 }
 
 dependencies {
-    implementation("org.hibernate:hibernate-core:6.3.0.Final")
-    runtimeOnly("implementation 'org.postgresql:postgresql:42.6.0")
+    implementation ("org.hibernate:hibernate-core:5.5.6.Final")
+    runtimeOnly ("org.postgresql:postgresql:42.2.27")
+    implementation ("com.vladmihalcea:hibernate-types-52:2.12.1")
+    implementation ("org.slf4j:slf4j-log4j12:2.0.7")
 
-    compileOnly("org.projectlombok:lombok:1.18.28")
-    annotationProcessor("org.projectlombok:lombok:1.18.28")
 
-    testCompileOnly("org.projectlombok:lombok:1.18.28")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.28")
+    //implementation ("com.querydsl:querydsl-jpa:5.0.0")
+   //annotationProcessor ("com.querydsl:querydsl-apt:5.0.0")
 
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+
+    annotationProcessor("org.hibernate:hibernate-jpamodelgen:5.5.7.Final")
+
+    compileOnly ("org.projectlombok:lombok:1.18.20")
+    annotationProcessor ("org.projectlombok:lombok:1.18.20")
+
+    testCompileOnly ("org.projectlombok:lombok:1.18.20")
+    testAnnotationProcessor ("org.projectlombok:lombok:1.18.20")
+    testImplementation("org.assertj:assertj-core:3.21.0")
+    testImplementation ("org.junit.jupiter:junit-jupiter-api:5.7.2")
+    testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.7.2")
+    testImplementation ("org.testcontainers:postgresql:1.19.0")
 }
 
 tasks.test {
