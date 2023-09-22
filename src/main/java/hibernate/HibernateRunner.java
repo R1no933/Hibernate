@@ -1,6 +1,10 @@
 package hibernate;
 
 import hibernate.dao.PaymentRepository;
+import hibernate.dao.UserRepository;
+import hibernate.mapper.CompanyReadMapper;
+import hibernate.mapper.UserReadMapper;
+import hibernate.service.UserService;
 import hibernate.util.HibernateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.*;
@@ -20,8 +24,13 @@ public class HibernateRunner {
                     (proxy, method, args1) -> method.invoke(sessionFactory.getCurrentSession(), args1));
             session.beginTransaction();
 
+            CompanyReadMapper companyReadMapper = new CompanyReadMapper();
+            UserReadMapper userReadMapper = new UserReadMapper(companyReadMapper);
+            UserRepository userRepository = new UserRepository(session);
             PaymentRepository paymentRepository = new PaymentRepository(session);
-            paymentRepository.findById(1L).ifPresent(System.out::println);
+            UserService userService = new UserService(userRepository,userReadMapper);
+
+            userService.findById(1L).ifPresent(System.out::println);
 
             session.getTransaction().commit();
         }
