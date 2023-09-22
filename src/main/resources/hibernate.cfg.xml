@@ -8,15 +8,35 @@
     <property name="connection.username">postgres</property>
     <property name="connection.password">P@ssw0rd</property>
     <property name="connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">validate</property>
 
     <mapping class="hibernate.entity.User"/>
     <mapping class="hibernate.entity.Company"/>
     <mapping class="hibernate.entity.Profile"/>
     <mapping class="hibernate.entity.Chat"/>
     <mapping class="hibernate.entity.UserChat"/>
+    <mapping class="hibernate.entity.Payment"/>
+    <!--
+    <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+    <property name="connection.username">postgres</property>
+    <property name="connection.password">P@ssw0rd</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">createe</property>
+
+    <mapping class="hibernate.entity.User"/>
+    <mapping class="hibernate.entity.Company"/>
+    <mapping class="hibernate.entity.Profile"/>
+    <mapping class="hibernate.entity.Chat"/>
+    <mapping class="hibernate.entity.UserChat"/>
+    <mapping class="hibernate.entity.Payment"/>
+
+    -->
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
