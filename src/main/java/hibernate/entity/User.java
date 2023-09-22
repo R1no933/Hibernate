@@ -4,15 +4,33 @@ import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.*;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.FetchProfile;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static hibernate.util.StringUtil.SPACE;
+
+@NamedEntityGraph(
+        name = "WithCompany",
+        attributeNodes = {
+                @NamedAttributeNode("company"),
+                //@NamedAttributeNode(value = "userChats", subgraph = "chats")
+        }
+        //subgraphs = {
+        //        @NamedSubgraph(name = "chats", attributeNodes = @NamedAttributeNode("chat"))
+        //}
+)
+@FetchProfile(name = "withCompanyAndPayment", fetchOverrides = {
+        @FetchProfile.FetchOverride(
+                entity = User.class, association = "company", mode = FetchMode.JOIN
+        ),
+        @FetchProfile.FetchOverride(
+                entity = User.class, association = "payments", mode = FetchMode.JOIN
+        )
+})
 
 @NamedQuery(name = "findUserByName", query = "select u from User u where u.personalInfo.firstname = : firstname order by " +
         "u.personalInfo.lastname desc")
