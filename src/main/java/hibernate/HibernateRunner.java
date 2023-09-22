@@ -1,8 +1,14 @@
 package hibernate;
 
+import hibernate.dao.CompanyRepository;
 import hibernate.dao.PaymentRepository;
 import hibernate.dao.UserRepository;
+import hibernate.dto.UserCreateDto;
+import hibernate.entity.PersonalInfo;
+import hibernate.entity.Role;
+import hibernate.entity.User;
 import hibernate.mapper.CompanyReadMapper;
+import hibernate.mapper.UserCreateMapper;
 import hibernate.mapper.UserReadMapper;
 import hibernate.service.UserService;
 import hibernate.util.HibernateUtil;
@@ -13,6 +19,7 @@ import javax.transaction.Transactional;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.time.LocalDate;
 
 @Slf4j
 public class HibernateRunner {
@@ -25,12 +32,27 @@ public class HibernateRunner {
             session.beginTransaction();
 
             CompanyReadMapper companyReadMapper = new CompanyReadMapper();
+            CompanyRepository companyRepository = new CompanyRepository(session);
             UserReadMapper userReadMapper = new UserReadMapper(companyReadMapper);
             UserRepository userRepository = new UserRepository(session);
+            UserCreateMapper userCreateMapper = new UserCreateMapper(companyRepository);
             PaymentRepository paymentRepository = new PaymentRepository(session);
-            UserService userService = new UserService(userRepository,userReadMapper);
+            UserService userService = new UserService(userRepository, userReadMapper, userCreateMapper);
 
             userService.findById(1L).ifPresent(System.out::println);
+
+            UserCreateDto UserCreateDto = new UserCreateDto(
+                    PersonalInfo.builder()
+                            .firstname("Dmitriy")
+                            .lastname("Baskakov")
+                            .birthDate(LocalDate.now())
+                            .build(),
+                    "db@yandex.ru",
+                    null,
+                    Role.ADMIN,
+                    1
+            );
+            userService.create(UserCreateDto);
 
             session.getTransaction().commit();
         }
